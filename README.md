@@ -301,7 +301,11 @@ Restricts Pieman to only preparing or upgrading the toolset which is located in 
 
 Specifies the time zone of the system.
 
-##### TOOLSET_DIR="${PIEMAN_DIR}/toolset"
+##### TOOLSET_VER=v1
+
+Specifies the toolset version to be used instead of default version. The default version is the last released official version of the build script supported all Pieman's features, so if you don't have special needs it is recommended to use the default one. If toolset with specified version does not exist the new one will be built.
+
+##### TOOLSET_DIR="${PIEMAN_DIR}/toolset/${TOOLSET_VER}"
 
 Specifies the directory which contains the tools necessary for creating chroot environments based on Alpine Linux and different Debian-based distributions. The toolset consists of [debootstrap](https://wiki.debian.org/Debootstrap) and [apk.static](https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management).
 

@@ -118,7 +118,9 @@ def_bool_var SUDO_REQUIRE_PASSWORD true
 
 def_var TIME_ZONE "Etc/UTC"
 
-def_var TOOLSET_DIR "${PIEMAN_DIR}/toolset"
+def_var TOOLSET_VER "v1"
+
+def_var TOOLSET_DIR "${PIEMAN_DIR}/toolset/${TOOLSET_VER}"
 
 def_var USER_NAME "cusdeb"
 
@@ -203,7 +205,10 @@ check_required_directories
 
 check_required_files
 
-info "checking toolset"
+info "checking toolset v${TOOLSET_VER}"
+if [ ! -d "${TOOLSET_DIR}" ]; then
+    info "new toolset ${TOOLSET_VER} will be built"
+fi
 . toolset.sh
 
 # shellcheck source=./pieman/pieman/build_status_codes
